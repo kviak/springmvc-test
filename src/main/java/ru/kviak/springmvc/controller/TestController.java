@@ -1,4 +1,4 @@
-package ru.kviak.springmvc.Controller;
+package ru.kviak.springmvc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
