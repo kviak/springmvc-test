@@ -1,9 +1,20 @@
 package ru.kviak.springmvc.models;
 
+import jakarta.validation.constraints.*;
+
+
 public class Person {
     private int id;
+
+
+    @Min(value = 0, message = "Age should be greater than 0")
     private int age;
+
+    @NotEmpty(message = "Email should not be empty")
+    @Email(message = "Incorrect email")
     private String email;
+    @Size(min=2, max=50, message = "Name length should be between 2 and 50 characters")
+    @NotEmpty(message = "Name should not be empty")
     private String name;
 
     public Person(int id, String name, int age, String email) {
