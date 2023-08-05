@@ -1,0 +1,30 @@
+package ru.kviak.springmvc.dao;
+
+import org.springframework.stereotype.Component;
+import ru.kviak.springmvc.models.Person;
+
+import java.util.ArrayList;
+import java.util.List;
+@Component
+public class PersonDAO {
+    private static int PEOPLE_COUNT;
+    private final List<Person> people;
+
+    {
+        people = new ArrayList<>();
+
+        people.add(new Person(++PEOPLE_COUNT, "Denis"));
+        people.add(new Person(++PEOPLE_COUNT, "Jame"));
+        people.add(new Person(++PEOPLE_COUNT, "Tom"));
+    }
+    public List<Person> index(){
+        return people;
+    }
+
+    public Person show(int id){
+        return people.stream()
+                .filter(person -> person.getId() == id)
+                .findAny()
+                .orElse(null);
+    }
+}
