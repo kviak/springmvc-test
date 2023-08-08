@@ -5,11 +5,8 @@ import jakarta.validation.constraints.*;
 
 public class Person {
     private int id;
-
-
     @Min(value = 0, message = "Age should be greater than 0")
     private int age;
-
     @NotEmpty(message = "Email should not be empty")
     @Email(message = "Incorrect email")
     private String email;

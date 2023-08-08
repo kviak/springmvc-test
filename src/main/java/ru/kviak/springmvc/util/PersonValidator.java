@@ -28,6 +28,8 @@ public class PersonValidator implements Validator {
             errors.rejectValue("email", "", "This email already taken");
         }
 
+
+
         // Проверить существует ли человек с таким же Email
     }
 }
