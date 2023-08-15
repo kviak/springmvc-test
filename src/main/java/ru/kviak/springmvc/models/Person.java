@@ -1,21 +1,29 @@
 package ru.kviak.springmvc.models;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
-
+@Entity
+@Table(name = "Person")
 public class Person {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Min(value = 0, message = "Age should be greater than 0")
+    @Column(name = "age")
     private int age;
+
     @NotEmpty(message = "Email should not be empty")
     @Email(message = "Incorrect email")
+    @Column(name = "email")
     private String email;
     @Size(min=2, max=50, message = "Name length should be between 2 and 50 characters")
     @NotEmpty(message = "Name should not be empty")
+    @Column(name = "name")
     private String name;
 
-    public Person(int id, String name, int age, String email) {
-        this.id = id;
+    public Person(String name, int age, String email) {
         this.name = name;
         this.age = age;
         this.email = email;
